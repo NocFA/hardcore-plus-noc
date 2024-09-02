@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "hardcoreplusplus",
+	"version": "${version}",
+	"name": "Hardcore Plus Plus",
+	"description": "An Irishman's attempt at modding.",
+	"authors": [
+		"NocFA"
+	],
+	"contact": {
+		"homepage": "https://github.com/nocFA",
+		"sources": "https://github.com/NocFA/hardcore-plus-noc"
+	},
+	"license": "MIT",
+	"icon": "assets/hardcoreplusplus/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"noc.mods.HardcorePlusPlus"
+		],
+		"fabric-datagen": [
+			"noc.mods.HardcorePlusPlusDataGenerator"
+		],
+
+		"client": [
+			"noc.mods.HardcorePlusPlusClient"
+		]
+	},
+	"mixins": [
+		"hardcoreplusplus.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.2",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
