@@ -7,9 +7,11 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import noc.mods.HardcorePlusPlus;
+import noc.mods.Item.custom.Resurrection_Item;
 
 public class ModItems {
-    public static final Item RESURRECTION_STONE = registerItem("resurrection_stone", new Item(new Item.Settings()));
+    public static final Item RESURRECTION_STONE = registerItem("resurrection_stone",
+            new Resurrection_Item(new Item.Settings()));
 
     public static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(HardcorePlusPlus.MOD_ID, name), item);
