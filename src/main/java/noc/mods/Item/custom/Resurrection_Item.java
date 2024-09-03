@@ -28,7 +28,7 @@ public class Resurrection_Item extends Item {
     private void onEntityDeath(ServerWorld world, Entity entity, LivingEntity killedEntity) {
         if (killedEntity.getType() == EntityType.VILLAGER && !world.isClient) {
             for (ServerPlayerEntity player : world.getPlayers()) {
-                if (isPlayerHoldingItem(player) && isWithinRange(killedEntity, player, 15)) {
+                if (isPlayerHoldingItem(player) && isWithinRange(killedEntity, player)) {
                     handleVillagerDeathNearby(player);
                 }
             }
@@ -40,10 +40,10 @@ public class Resurrection_Item extends Item {
         return offHandStack.getItem() instanceof Resurrection_Item;
     }
 
-    private boolean isWithinRange(Entity entity, PlayerEntity player, double range) {
+    private boolean isWithinRange(Entity entity, PlayerEntity player) {
         Vec3d entityPos = entity.getPos();
         Vec3d playerPos = player.getPos();
-        return entityPos.isInRange(playerPos, range);
+        return entityPos.isInRange(playerPos, 15);
     }
 
     private void handleVillagerDeathNearby(PlayerEntity player) {
