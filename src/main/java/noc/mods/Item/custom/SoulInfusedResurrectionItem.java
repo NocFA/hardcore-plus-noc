@@ -26,7 +26,7 @@ public class SoulInfusedResurrectionItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack itemStack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.literal("This stone is infused with the soul of a villager.").formatted(Formatting.GRAY));
+        tooltip.add(Text.literal("Infused with the soul of a villager.").formatted(Formatting.GRAY));
     }
 
 }
