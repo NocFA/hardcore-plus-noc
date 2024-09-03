@@ -8,10 +8,14 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import noc.mods.HardcorePlusPlus;
 import noc.mods.Item.custom.Resurrection_Item;
+import noc.mods.Item.custom.SoulInfusedResurrectionItem;
 
 public class ModItems {
     public static final Item RESURRECTION_STONE = registerItem("resurrection_stone",
             new Resurrection_Item(new Item.Settings()));
+
+    public static final Item SOUL_INFUSED_RESURRECTION_ITEM = registerItem("soul_infused_resurrection_stone",
+            new SoulInfusedResurrectionItem(new Item.Settings()));
 
     public static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(HardcorePlusPlus.MOD_ID, name), item);
@@ -19,6 +23,9 @@ public class ModItems {
 
     public static void registerModItems() {
         HardcorePlusPlus.LOGGER.info("Registering items for " + HardcorePlusPlus.MOD_ID);
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(RESURRECTION_STONE));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+            entries.add(RESURRECTION_STONE);
+            entries.add(SOUL_INFUSED_RESURRECTION_ITEM); // Adding the soul-infused item to the item group
+        });
     }
 }
