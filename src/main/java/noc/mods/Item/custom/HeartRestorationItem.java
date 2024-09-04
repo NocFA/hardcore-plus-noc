@@ -1,4 +1,4 @@
-package noc.item.custom;
+package noc.mods.Item.custom;
 
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -31,7 +31,7 @@ public class HeartRestorationItem extends Item {
         }
         return ActionResult.PASS;
     }
-// @todo Add texture and stuff for this
+
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         if (!world.isClient) {

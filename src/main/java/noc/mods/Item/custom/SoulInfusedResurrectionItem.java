@@ -20,11 +20,6 @@ public class SoulInfusedResurrectionItem extends Item {
     }
 
     @Override
-    public Text getName(ItemStack stack) {
-        return Text.literal("Soul Infused Resurrection Stone");
-    }
-
-    @Override
     public void appendTooltip(ItemStack itemStack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.literal("Infused with the soul of a villager.").formatted(Formatting.GRAY));
     }
