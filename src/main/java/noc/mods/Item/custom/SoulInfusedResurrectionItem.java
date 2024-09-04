@@ -25,7 +25,7 @@ public class SoulInfusedResurrectionItem extends Item {
     @Override
     public Text getName(ItemStack stack) {
         MutableText defaultName = super.getName(stack).copy();
-        return defaultName.setStyle(Style.EMPTY.withColor(TextColor.fromFormatting(Formatting.DARK_PURPLE)).withBold(true));
+        return defaultName.setStyle(Style.EMPTY.withColor(TextColor.fromFormatting(Formatting.DARK_PURPLE)).withBold(false));
     }
 
     @Override

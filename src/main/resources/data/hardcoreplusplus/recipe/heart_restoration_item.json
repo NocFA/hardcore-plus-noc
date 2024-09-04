@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "misc",
+  "pattern": [
+    "#",
+    "N",
+    "S"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:totem_of_undying"
+    },
+    "N": {
+      "item": "minecraft:netherite_block"
+    },
+    "S": {
+      "item": "minecraft:soul_torch"
+    }
+  },
+  "result": {
+  "count": 1,
+  "id": "hardcoreplusplus:heart_restoration_item"}
+}
