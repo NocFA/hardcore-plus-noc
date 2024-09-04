@@ -83,8 +83,13 @@ public class ResurrectionHandler {
         EntityAttributeInstance maxHealthAttribute = player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
         if (maxHealthAttribute != null) {
             double currentMaxHealth = maxHealthAttribute.getBaseValue();
-            if (currentMaxHealth > 4.0) {
+
+            if (currentMaxHealth > 2.0) {
                 double newMaxHealth = currentMaxHealth - 2.0;
+                maxHealthAttribute.setBaseValue(newMaxHealth);
+                System.out.println("Reduced max health of " + player.getName().getString() + " to " + newMaxHealth + " health points.");
+            } else if (currentMaxHealth > 1.0) {
+                double newMaxHealth = currentMaxHealth - 1.0;
                 maxHealthAttribute.setBaseValue(newMaxHealth);
                 System.out.println("Reduced max health of " + player.getName().getString() + " to " + newMaxHealth + " health points.");
             } else {
