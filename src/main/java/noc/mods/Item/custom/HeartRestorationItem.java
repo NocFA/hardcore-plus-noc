@@ -42,6 +42,11 @@ public class HeartRestorationItem extends Item {
         return TypedActionResult.pass(player.getStackInHand(hand));
     }
 
+    @Override
+    public boolean hasGlint(ItemStack stack) {
+        return true;
+    }
+
     private void restoreMaxHealth(PlayerEntity player, ItemStack stack) {
         EntityAttributeInstance maxHealthAttribute = player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
         if (maxHealthAttribute != null) {

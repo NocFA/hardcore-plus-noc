@@ -19,7 +19,7 @@ public class ModItems {
             new SoulInfusedResurrectionItem(new Item.Settings()));
 
     public static final Item HEART_RESTORATION_ITEM = registerItem("heart_restoration_item",
-            new HeartRestorationItem(new Item.Settings().maxCount(1)));
+            new HeartRestorationItem(new Item.Settings().maxCount(3)));
 
     public static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(HardcorePlusPlus.MOD_ID, name), item);
