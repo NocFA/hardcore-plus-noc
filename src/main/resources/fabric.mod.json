@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "hardcoreplusplus",
 	"version": "${version}",
-	"name": "Hardcore Plus Plus",
+	"name": "Hardcore++",
 	"description": "An Irishman's attempt at modding.",
 	"authors": [
 		"NocFA"
