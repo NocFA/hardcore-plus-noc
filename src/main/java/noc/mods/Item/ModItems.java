@@ -25,7 +25,7 @@ public class ModItems {
         HardcorePlusPlus.LOGGER.info("Registering items for " + HardcorePlusPlus.MOD_ID);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.add(RESURRECTION_STONE);
-            entries.add(SOUL_INFUSED_RESURRECTION_ITEM); // Adding the soul-infused item to the item group
+            entries.add(SOUL_INFUSED_RESURRECTION_ITEM);
         });
     }
 }

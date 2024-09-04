@@ -20,8 +20,6 @@ public class Resurrection_Item extends Item {
 
     public Resurrection_Item(Settings settings) {
         super(settings);
-
-        // Register the death event listener for entities
         ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register(this::onEntityDeath);
     }
 
