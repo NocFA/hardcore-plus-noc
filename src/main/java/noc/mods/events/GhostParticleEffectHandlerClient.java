@@ -1,5 +1,7 @@
 package noc.mods.events;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -10,6 +12,7 @@ import noc.mods.HardcorePlusPlus;
 import org.joml.Vector3f;
 import net.minecraft.sound.SoundEvents;
 
+@Environment(EnvType.CLIENT)
 public class GhostParticleEffectHandlerClient {
 
     public static void register() {

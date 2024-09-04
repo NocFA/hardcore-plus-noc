@@ -14,7 +14,6 @@ public class HardcorePlusPlus implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.registerModItems();
-		GhostParticleEffectHandlerClient.register();
 		ResurrectionHandler.registerEvents();
 	}
 }
