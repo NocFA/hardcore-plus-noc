@@ -4,6 +4,8 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.entity.Entity.RemovalReason;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.attribute.EntityAttributeInstance;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -67,11 +69,27 @@ public class ResurrectionHandler {
 
         world.playSound(null, pos.x, pos.y, pos.z, SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.WEATHER, 3.0F, 1.0F);
 
+        reducePlayerMaxHealth(player);
+
         player.changeGameMode(GameMode.SURVIVAL);
-        player.setHealth(10.0F);
+        player.setHealth(Math.min(player.getHealth(), player.getMaxHealth()));
         player.clearStatusEffects();
         System.out.println("Player " + player.getName().getString() + " has been resurrected to survival mode.");
 
         itemEntity.remove(RemovalReason.DISCARDED);
+    }
+
+    private static void reducePlayerMaxHealth(ServerPlayerEntity player) {
+        EntityAttributeInstance maxHealthAttribute = player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
+        if (maxHealthAttribute != null) {
+            double currentMaxHealth = maxHealthAttribute.getBaseValue();
+            if (currentMaxHealth > 4.0) {
+                double newMaxHealth = currentMaxHealth - 2.0;
+                maxHealthAttribute.setBaseValue(newMaxHealth);
+                System.out.println("Reduced max health of " + player.getName().getString() + " to " + newMaxHealth + " health points.");
+            } else {
+                System.out.println("Player " + player.getName().getString() + " is at minimum health and cannot lose more hearts.");
+            }
+        }
     }
 }
