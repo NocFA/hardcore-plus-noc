@@ -8,6 +8,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameMode;
 import noc.mods.Item.ModItems;
@@ -56,20 +58,20 @@ public class ResurrectionHandler {
     private static void resurrectPlayer(ItemEntity itemEntity, ServerPlayerEntity player) {
         System.out.println("Initiating resurrection for player: " + player.getName().getString() + " at item location: " + itemEntity.getPos());
 
-        // Explosion effect with particles
         ServerWorld world = (ServerWorld) itemEntity.getWorld();
         Vec3d pos = itemEntity.getPos();
+
         world.spawnParticles(ParticleTypes.EXPLOSION, pos.x, pos.y, pos.z, 10, 1, 1, 1, 0.1);
         world.spawnParticles(ParticleTypes.FLASH, pos.x, pos.y, pos.z, 5, 0, 0, 0, 0.5);
         world.spawnParticles(ParticleTypes.SOUL_FIRE_FLAME, pos.x, pos.y, pos.z, 20, 0.5, 0.5, 0.5, 0.1);
 
-        // Revive player
+        world.playSound(null, pos.x, pos.y, pos.z, SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, SoundCategory.WEATHER, 3.0F, 1.0F);
+
         player.changeGameMode(GameMode.SURVIVAL);
         player.setHealth(10.0F);
         player.clearStatusEffects();
         System.out.println("Player " + player.getName().getString() + " has been resurrected to survival mode.");
 
-        // Remove the item from the world
         itemEntity.remove(RemovalReason.DISCARDED);
     }
 }
